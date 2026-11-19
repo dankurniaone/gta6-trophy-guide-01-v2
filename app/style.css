@@ -1,0 +1,246 @@
+/* Leonida Legend — dark "Vice City nights" theme. System fonts only, no
+   external files, so the guide works fully offline. */
+
+:root {
+  --bg: #0e0b14;
+  --panel: #171224;
+  --panel-2: #1f1930;
+  --line: #2e2547;
+  --text: #f2eefc;
+  --muted: #b3a8cc;
+  --pink: #ff2d78;
+  --cyan: #00e5ff;
+  --gold: #f5c542;
+  --silver: #c9d2dc;
+  --bronze: #d08a4e;
+  --platinum: #7de3ff;
+  --danger: #ff5a5a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.55;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 28px 24px 20px;
+  border-bottom: 3px solid var(--pink);
+  background: linear-gradient(135deg, #171224 0%, #241338 55%, #0e0b14 100%);
+}
+
+.kicker {
+  margin: 0 0 4px;
+  color: var(--cyan);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.sub { margin: 8px 0 0; color: var(--muted); max-width: 560px; }
+
+.progress { min-width: 260px; }
+.progress-num { font-size: 34px; font-weight: 800; }
+.progress-num .of { color: var(--muted); font-size: 18px; }
+.bar {
+  height: 10px;
+  background: var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 6px 0;
+}
+.bar-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--pink), var(--cyan));
+  transition: width 0.25s ease;
+}
+.progress-text { margin: 0; font-weight: 700; }
+.grade-counts { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+
+.roadmap {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+.roadmap h2 { margin: 0 0 6px; font-size: 22px; }
+.roadmap-intro, .roadmap-note { color: var(--muted); max-width: 860px; }
+.roadmap-intro strong { color: var(--pink); }
+.roadmap-list {
+  list-style: none;
+  margin: 14px 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+.roadmap-list li {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.roadmap-list h3 { margin: 0 0 4px; font-size: 15px; color: var(--cyan); }
+.stage-progress {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.roadmap-list p { margin: 0; font-size: 14px; color: var(--muted); }
+
+.controls {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 5;
+}
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: end;
+}
+.control-row + .control-row { margin-top: 10px; }
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.controls input[type="search"], .controls select {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+  min-width: 150px;
+}
+.controls input[type="search"] { min-width: 260px; }
+.toggle {
+  flex-direction: row !important;
+  align-items: center;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-size: 14px !important;
+  color: var(--text) !important;
+}
+.toggle-hint { color: var(--muted); font-weight: 400; }
+.spacer { flex: 1; }
+button, .import-btn {
+  background: var(--pink);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover, .import-btn:hover { filter: brightness(1.12); }
+.import-btn input { display: none; }
+button.danger { background: transparent; color: var(--danger); border: 1px solid var(--danger); }
+.result-count { margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+
+main { padding: 20px 24px 32px; }
+.trophy-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.card.earned { border-color: var(--cyan); }
+.card-head {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.card-head input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  accent-color: var(--cyan);
+  flex: none;
+  cursor: pointer;
+}
+.title-box { flex: 1; min-width: 0; }
+.title-box h3 { margin: 0; font-size: 18px; }
+.card.earned .title-box h3 { color: var(--cyan); }
+.desc { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+  flex: none;
+  max-width: 260px;
+}
+.grade {
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #111;
+}
+.grade-platinum { background: var(--platinum); }
+.grade-gold { background: var(--gold); }
+.grade-silver { background: var(--silver); }
+.grade-bronze { background: var(--bronze); }
+.tag {
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+.tag.missable { border-color: var(--pink); color: var(--pink); }
+.tag.kind { color: var(--cyan); border-color: var(--cyan); }
+.guide { margin: 10px 0 0; font-size: 15px; }
+.sources { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+.sources a { color: var(--cyan); }
+.empty { color: var(--muted); text-align: center; padding: 32px 0; }
+
+footer {
+  padding: 20px 24px 32px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+footer p { max-width: 860px; }
+.sources-note { margin-top: 6px; }
+
+@media (max-width: 640px) {
+  h1 { font-size: 32px; }
+  .top, .roadmap, .controls, main, footer { padding-left: 14px; padding-right: 14px; }
+  .card-head { flex-wrap: wrap; }
+  .badges { max-width: none; justify-content: flex-start; }
+  .controls input[type="search"] { min-width: 0; width: 100%; }
+}
